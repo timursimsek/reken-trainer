@@ -19,6 +19,8 @@ function startTimer() {
 
 function stopTimer() {
   clearInterval(timerInterval);
+  const tijd = document.getElementById("timer").textContent;
+  document.getElementById("timerValue").textContent = tijd;
 }
 
 function toonVolgendeOefening() {
@@ -27,8 +29,13 @@ function toonVolgendeOefening() {
     vraagEl.textContent = "Klaar!";
     antwoordInput.disabled = true;
     okBtn.disabled = true;
+
     resultatenEl.value += `\nEindscore: ${score} / ${oefeningen.length}`;
     resultatenEl.value += `\nTijd: ${document.getElementById("timer").textContent}`;
+
+    document.getElementById("timer").style.display = "none"; // verberg bovenaan
+    document.getElementById("timerEnd").style.display = "block"; // toon onderaan
+    document.getElementById("homeBtn").style.display = "block";
     return;
   }
 

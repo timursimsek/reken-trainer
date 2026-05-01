@@ -9,7 +9,6 @@
 
   <body>
     <h1>RekenTrainer</h1>
-    <h3>Tijd: <span id="timer">00:00</span></h3>
     <h2>Geselecteerde tafels: <%= tafels.join(", ") %></h2>
     <h3>Bewerkingen: <%= bewerkingen.join(", ") %></h3>
 
@@ -19,9 +18,26 @@
       <button id="okBtn">OK</button>
     </div>
 
-    <h3>Resultaten:</h3>
-    <textarea id="resultaten" readonly rows="10" cols="40"></textarea>
-
+    <div class="resultContainer">
+      <div class="resultTitles">
+        <h3>Resultaten:</h3>
+        <h3>Tijd: <span id="timer">00:00</span></h3>
+      </div>
+      <div class="resultArea">
+        <textarea id="resultaten" readonly rows="10" cols="40"></textarea>
+        <div id="timerEnd" style="display: none">
+          Tijd: <span id="timerValue"></span>
+        </div>
+        <button
+          id="homeBtn"
+          class="start-btn"
+          style="display: none"
+          onclick="window.location.href = '/'"
+        >
+          Terug naar startpagina
+        </button>
+      </div>
+    </div>
     <script>
       const oefeningen = <%- JSON.stringify(oefeningen) %>;
     </script>
