@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%- title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+    <body>
+        <h1>RekenTrainer</h1>
+        <form action="/start" method="post" class="reken-form">
+            <h2>Kies je tafels</h2>
+            <div class="tafel-grid">
+                <% for (let i = 0; i <= 10; i++) { %>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="tafels" value="<%= i %>">
+                    <span><%= i %></span>
+                </label>
+                <% } %>
+            </div>
+            <h2>Kies bewerkingen</h2>
+            <div class="bewerkingen">
+                <label class="checkbox-item">
+                <input type="checkbox" name="bewerkingen" value="maal">
+                <span>Maal (×)</span>
+                </label>
+
+                <label class="checkbox-item">
+                <input type="checkbox" name="bewerkingen" value="delen">
+                <span>Delen (÷)</span>
+                </label>
+            </div>
+            <h2>Aantal oefeningen</h2>
+            <input type="number" name="aantal" min="5" max="50" required class="aantal-tafels">
+            <button type="submit" class="start-btn">Start</button>
+        </form>
+    </body>
+</html>

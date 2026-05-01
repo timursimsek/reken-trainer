@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RekenTrainer</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script defer src="/js/rekenTrainer.js"></script>
+  </head>
+
+  <body>
+    <h1>RekenTrainer</h1>
+    <h3>Tijd: <span id="timer">00:00</span></h3>
+    <h2>Geselecteerde tafels: <%= tafels.join(", ") %></h2>
+    <h3>Bewerkingen: <%= bewerkingen.join(", ") %></h3>
+
+    <div id="quizContainer">
+      <h3 id="vraag"></h3>
+      <input type="number" id="antwoordInput" autofocus />
+      <button id="okBtn">OK</button>
+    </div>
+
+    <h3>Resultaten:</h3>
+    <textarea id="resultaten" readonly rows="10" cols="40"></textarea>
+
+    <script>
+      const oefeningen = <%- JSON.stringify(oefeningen) %>;
+    </script>
+  </body>
+</html>
