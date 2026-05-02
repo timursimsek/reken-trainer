@@ -31,8 +31,12 @@ function toonVolgendeOefening() {
     antwoordInput.disabled = true;
     okBtn.disabled = true;
 
-    resultatenEl.value += `\nEindscore: ${score} / ${oefeningen.length}`;
-    resultatenEl.value += `\nTijd: ${document.getElementById("timer").textContent}`;
+    const eindTijd = document.getElementById("timer").textContent;
+
+    resultatenEl.value =
+      `Eindscore: ${score} / ${oefeningen.length}\n` +
+      `Tijd: ${eindTijd}\n\n` +
+      resultatenEl.value;
 
     document.getElementById("timer").style.display = "none"; // verberg bovenaan
     document.getElementById("timerEnd").style.display = "block"; // toon onderaan
@@ -52,7 +56,9 @@ function controleerAntwoord() {
   const isCorrect = userAnswer === correctAnswer;
 
   const symbool = isCorrect ? "✅" : "❌";
-  resultatenEl.value += `${oefeningen[currentIndex].vraag} = ${userAnswer} ${symbool}\n`;
+  resultatenEl.value =
+    `${oefeningen[currentIndex].vraag} = ${userAnswer} ${symbool}\n` +
+    resultatenEl.value;
 
   if (isCorrect) score++;
   currentIndex++;
