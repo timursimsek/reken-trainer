@@ -7,6 +7,7 @@ const vraagEl = document.getElementById("vraag");
 const antwoordInput = document.getElementById("antwoordInput");
 const okBtn = document.getElementById("okBtn");
 const resultatenEl = document.getElementById("resultaten");
+const resetBtn = document.getElementById("resetBtn");
 
 function startTimer() {
   timerInterval = setInterval(() => {
@@ -63,5 +64,16 @@ antwoordInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") controleerAntwoord();
 });
 
-startTimer();
-toonVolgendeOefening();
+if (resetBtn) {
+  resetBtn.addEventListener("click", () => {
+    document
+      .querySelectorAll("input[type='checkbox']")
+      .forEach((cb) => (cb.checked = false));
+    document.querySelector("input[name='aantal']").value = "";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  toonVolgendeOefening();
+  startTimer();
+});

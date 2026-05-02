@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
     <body>
-        <h1>RekenTrainer</h1>
+        <h1><%- title %></h1>
         <form action="/start" method="post" class="reken-form">
             <h2>Kies je tafels</h2>
             <div class="tafel-grid">
@@ -30,8 +30,11 @@
                 </label>
             </div>
             <h2>Aantal oefeningen</h2>
-            <input type="number" name="aantal" min="5" max="50" required class="aantal-tafels">
-            <button type="submit" class="start-btn">Start</button>
+            <section class="formBtns">
+                <input type="number" name="aantal" min="5" max="50" required class="aantal-tafels">
+                <button type="submit" class="start-btn">Start</button>
+                <button type="button" class="reset-btn" id="resetBtn">Reset</button>
+            </section>
         </form>
     </body>
 </html>

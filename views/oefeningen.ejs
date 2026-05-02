@@ -2,44 +2,44 @@
 <html lang="nl">
   <head>
     <meta charset="UTF-8" />
-    <title>RekenTrainer</title>
+    <title><%- title %></title>
     <link rel="stylesheet" href="/css/style.css" />
     <script defer src="/js/rekenTrainer.js"></script>
   </head>
 
   <body>
-    <h1>RekenTrainer</h1>
-    <h2>Geselecteerde tafels: <%= tafels.join(", ") %></h2>
-    <h3>Bewerkingen: <%= bewerkingen.join(", ") %></h3>
-
-    <div id="quizContainer">
-      <h3 id="vraag"></h3>
-      <input type="number" id="antwoordInput" autofocus />
-      <button id="okBtn">OK</button>
-    </div>
-
-    <div class="resultContainer">
-      <div class="resultTitles">
-        <h3>Resultaten:</h3>
-        <h3>Tijd: <span id="timer">00:00</span></h3>
+    <h1><%- title %></h1>
+    <section class="oefeningen-section">
+      <h2>Geselecteerde tafels: <%= tafels.join(", ") %></h2>
+      <h3>Bewerkingen: <%= bewerkingen.join(", ") %></h3>
+      <div id="quizContainer">
+        <h3 id="vraag"></h3>
+        <input type="number" id="antwoordInput" autofocus />
+        <button id="okBtn">OK</button>
       </div>
-      <div class="resultArea">
-        <textarea id="resultaten" readonly rows="10" cols="40"></textarea>
-        <div id="timerEnd" style="display: none">
-          Tijd: <span id="timerValue"></span>
+      <div class="resultContainer">
+        <div class="resultTitles">
+          <h3>Resultaten:</h3>
+          <h3>Tijd: <span id="timer">00:00</span></h3>
         </div>
-        <button
-          id="homeBtn"
-          class="start-btn"
-          style="display: none"
-          onclick="window.location.href = '/'"
-        >
-          Terug naar startpagina
-        </button>
+        <div class="resultArea">
+          <textarea id="resultaten" readonly rows="10" cols="40"></textarea>
+          <div id="timerEnd" style="display: none">
+            Tijd: <span id="timerValue"></span>
+          </div>
+          <button
+            id="homeBtn"
+            class="start-btn"
+            style="display: none"
+            onclick="window.location.href = '/?reset=true'"
+          >
+            Nieuwe tafels kiezen
+          </button>
+        </div>
       </div>
-    </div>
-    <script>
-      const oefeningen = <%- JSON.stringify(oefeningen) %>;
-    </script>
+      <script>
+        const oefeningen = <%- JSON.stringify(oefeningen) %>;
+      </script>
+    </section>
   </body>
 </html>

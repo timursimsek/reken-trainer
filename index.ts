@@ -16,7 +16,7 @@ app.set("port", process.env.PORT || 3000);
 
 app.get("/", (req, res) => {
   res.render("index", {
-    title: "Reken-Trainer",
+    title: "Reken Trainer",
   });
 });
 
@@ -54,7 +54,12 @@ app.post("/start", (req, res) => {
     }
   }
 
-  res.render("oefeningen", { tafels, bewerkingen, oefeningen });
+  res.render("oefeningen", {
+    tafels,
+    bewerkingen,
+    oefeningen,
+    title: "Reken Trainer",
+  });
 });
 
 app.listen(app.get("port"), () => {
